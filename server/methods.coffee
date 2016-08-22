@@ -104,19 +104,20 @@ Meteor.methods
     runDMS()
   'dbConnectionTest': (_dbObj) ->
     cl _dbObj
-    mysqlDB = mysql.createConnection
-      host: service.DB정보.DB_IP
-      port: service.DB정보.DB_PORT
-      user: service.DB정보.DB_ID
-      password: service.DB정보.DB_PW
-      database: service.DB정보.DB_DATABASE
-    fut = new future()
-    mysqlDB.connect (err) ->
-      fut.return err?.message or 'success'
-    mysqlDB.query 'select * from TEST_TABLE;', (err, rows, fields) ->
-      cl err or rows
-    mysqlDB.end()
-    return fut.wait()
+#    service = CollectionServices.findOne SERVICE_ID: _dbObj.SERVICE_ID
+#    mysqlDB = mysql.createConnection
+#      host: service.DB정보.DB_IP
+#      port: service.DB정보.DB_PORT
+#      user: service.DB정보.DB_ID
+#      password: service.DB정보.DB_PW
+#      database: service.DB정보.DB_DATABASE
+#    fut = new future()
+#    mysqlDB.connect (err) ->
+#      fut.return err?.message or 'success'
+#    mysqlDB.query 'select * from TEST_TABLE;', (err, rows, fields) ->
+#      cl err or rows
+#    mysqlDB.end()
+#    return fut.wait()
 
 
 

@@ -21,19 +21,19 @@
               <tr>
                 <th scope="row" class="bul_txt01 vt" style="background-color: rgb(255, 255, 255);"><span>서비스명</span></th>
                 <td colspan="5" style="background-color: rgb(255, 255, 255);">
-                  <input type="text" class="ip_txt" maxlength="15" id="svc_nm" name="SERVICE_NAME" value="{{SERVICE_NAME}}">
+                  <input type="text" class="ip_txt"  id="svc_nm" name="SERVICE_NAME" value="{{SERVICE_NAME}}">
                 </td>
               </tr>
               <tr>
                 <th scope="row" class="bul_txt01"><span>서비스ID</span></th>
                 <td colspan="5">
-                  <input type="text" class="ip_txt" maxlength="15" id="svc_id" name="SERVICE_ID" value="{{SERVICE_ID}}" placeholder="서비스ID는 서비스별 사용될 Unique key 값입니다. e.g) SRV00001">
+                  <input type="text" class="ip_txt"  id="svc_id" name="SERVICE_ID" value="{{SERVICE_ID}}" placeholder="서비스ID는 서비스별 사용될 Unique key 값입니다. e.g) SRV00001">
                 </td>
               </tr>
               <tr>
                 <th scope="row" class="bul_txt01 vt" style="background-color: rgb(255, 255, 255);"><span>서비스 소개</span></th>
                 <td colspan="5" style="background-color: rgb(255, 255, 255);">
-                  <textarea cols="30" rows="10" maxlength="2000" id="svc_cn" name="SERVICE_INFO">{{{SERVICE_INFO}}}</textarea>
+                  <textarea cols="30" rows="10"  id="svc_cn" name="SERVICE_INFO">{{{SERVICE_INFO}}}</textarea>
                 </td>
               </tr>
               <tr>
@@ -45,7 +45,7 @@
                     <input type="radio" name="파일처리옵션" class="procOp" id="F11" value="사이즈0">사이즈 0</label>
                   <label class="radio ml20" id="fileProcRadio3">
                     <input type="radio" name="파일처리옵션" class="procOp" id="F12" value="백업">백업</label>
-                  <input type="text" class="ip_txt ml20" style="width:418px;" placeholder="백업 파일 경로를 입력해 주세요. e.g. /home/..." maxlength="256" name="백업파일경로" value="{{백업파일경로}}">
+                  <input type="text" class="ip_txt ml20" style="width:418px;" placeholder="백업 파일 경로를 입력해 주세요. e.g. /home/..."  name="백업파일경로" value="{{백업파일경로}}">
                 </td>
               </tr>
               <tr>
@@ -104,16 +104,16 @@
               <tr>
                 <th scope="row" class="bul_txt01"><span>DB Name</span></th>
                 <td>
-                  <input type="text" class="ip_txt" maxlength="30" name="DB이름" value="{{DB정보.DB이름}}">
-                  <!-- <input type="text" class="ip_txt" maxlength="30" id="svc_db_nm" name="svc_db_nm"  onkeyup="javascript:En_No_valid(this, 30);"/> -->
+                  <input type="text" class="ip_txt"  name="DB이름" value="{{DB정보.DB이름}}">
+                  <!-- <input type="text" class="ip_txt"  id="svc_db_nm" name="svc_db_nm"  onkeyup="javascript:En_No_valid(this, 30);"/> -->
                 </td>
               </tr>
               <!--<tr>-->
                 <!--<th scope="row" class="bul_txt01" style="background-color: rgb(255, 255, 255);"><span>DB 접속 URL 정보</span></th>-->
                 <!--<td style="background-color: rgb(255, 255, 255);">-->
-                  <!--<input type="text" class="ip_txt left" maxlength="80" name="DB접속URL" value="{{DB정보.DB접속URL}}">-->
+                  <!--<input type="text" class="ip_txt left"  name="DB접속URL" value="{{DB정보.DB접속URL}}">-->
 
-                  <!--&lt;!&ndash; 	<input type="text" class="ip_txt left ml5" style="width:194px" maxlength="5" id="svc_db_port"  onkeyup="javascript:num_check(this);"/>-->
+                  <!--&lt;!&ndash; 	<input type="text" class="ip_txt left ml5" style="width:194px"  id="svc_db_port"  onkeyup="javascript:num_check(this);"/>-->
                    <!--&ndash;&gt;-->
                 <!--</td>-->
               <!--</tr>-->
@@ -128,35 +128,35 @@
               <tr>
                 <th scope="row" class="bul_txt01"><span>DB IP</span></th>
                 <td>
-                  <input type="text" class="ip_txt" maxlength="30" name="DB_IP" value="{{DB정보.DB_IP}}">
-                  <!-- <input type="text" class="ip_txt" maxlength="30"  id="svc_db_id" name="svc_db_id" onkeyup="javascript:En_No_valid(this, 30);"/> -->
+                  <input type="text" class="ip_txt"  name="DB_IP" value="{{DB정보.DB_IP}}">
+                  <!-- <input type="text" class="ip_txt"   id="svc_db_id" name="svc_db_id" onkeyup="javascript:En_No_valid(this, 30);"/> -->
                 </td>
               </tr>
               <tr>
                 <th scope="row" class="bul_txt01"><span>DB PORT</span></th>
                 <td>
-                  <input type="text" class="ip_txt" maxlength="30" name="DB_PORT" value="{{DB정보.DB_PORT}}">
-                  <!-- <input type="text" class="ip_txt" maxlength="30"  id="svc_db_id" name="svc_db_id" onkeyup="javascript:En_No_valid(this, 30);"/> -->
+                  <input type="text" class="ip_txt"  name="DB_PORT" value="{{DB정보.DB_PORT}}">
+                  <!-- <input type="text" class="ip_txt"   id="svc_db_id" name="svc_db_id" onkeyup="javascript:En_No_valid(this, 30);"/> -->
                 </td>
               </tr>
               <tr>
                 <th scope="row" class="bul_txt01"><span>DB DATABASE</span></th>
                 <td>
-                  <input type="text" class="ip_txt" maxlength="30" name="DB_DATABASE" value="{{DB정보.DB_DATABASE}}">
-                  <!-- <input type="text" class="ip_txt" maxlength="30"  id="svc_db_id" name="svc_db_id" onkeyup="javascript:En_No_valid(this, 30);"/> -->
+                  <input type="text" class="ip_txt"  name="DB_DATABASE" value="{{DB정보.DB_DATABASE}}">
+                  <!-- <input type="text" class="ip_txt"   id="svc_db_id" name="svc_db_id" onkeyup="javascript:En_No_valid(this, 30);"/> -->
                 </td>
               </tr>
               <tr>
                 <th scope="row" class="bul_txt01"><span>DB ID</span></th>
                 <td>
-                  <input type="text" class="ip_txt" maxlength="30" name="DB_ID" value="{{DB정보.DB_ID}}">
-                  <!-- <input type="text" class="ip_txt" maxlength="30"  id="svc_db_id" name="svc_db_id" onkeyup="javascript:En_No_valid(this, 30);"/> -->
+                  <input type="text" class="ip_txt"  name="DB_ID" value="{{DB정보.DB_ID}}">
+                  <!-- <input type="text" class="ip_txt"   id="svc_db_id" name="svc_db_id" onkeyup="javascript:En_No_valid(this, 30);"/> -->
                 </td>
               </tr>
               <tr>
                 <th scope="row" class="bul_txt01"><span>DB Password</span></th>
                 <td>
-                  <input type="password" class="ip_txt" maxlength="30" name="DB_PW" value="{{DB정보.DB_PW}}">
+                  <input type="password" class="ip_txt"  name="DB_PW" value="{{DB정보.DB_PW}}">
                 </td>
               </tr>
               </tbody>
