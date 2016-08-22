@@ -1,0 +1,101 @@
+<template name="userList">
+  <div id="userList">
+    <div class="contents">
+      <h2 class="tit01">사용자 정보 조회</h2>
+      <div class="inner_box">
+        <div class="section">
+          <div class="tform01 srch_form">
+            <strong class="txt_srch">
+              <span>사용자 정보 조회</span>
+              {{#if isAdminUser}}
+              <a href="{{pathFor 'userDetailWriting'}}" class="btns btn_inner90 right">
+                <span class="m0">신규 등록</span>
+              </a>
+              {{/if}}
+            </strong>
+            <table>
+              <colgroup>
+                <col style="width:13%">
+                <col style="width:*">
+              </colgroup>
+              <tbody>
+              <tr class="first">
+                <th scope="row" class="bul_txt01 pre"><span>조회  조건</span></th>
+                <td>
+                  <!-- select -->
+                  <!--<div class="select">-->
+                    <!--<span>전체</span>-->
+                    <!--<ul>-->
+                      <!--<li data-val="A">전체</li>-->
+                      <!--<li data-val="N">이름</li>-->
+                      <!--<li data-val="I">아이디</li>-->
+                    <!--</ul>-->
+                    <!--<select id="mgr_search_dv" selected="selected">-->
+                      <!--<option value="A">전체</option>-->
+                      <!--<option value="N">이름</option>-->
+                      <!--<option value="I">아이디</option>-->
+                    <!--</select>-->
+                  <!--</div>-->
+                  <!-- //select -->
+                  <input type="text" id="mgr_search_txt" class="ip_txt" placeholder="이름/아이디" style="width: 100px;">
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="bul_txt01 pre" style="background-color: rgb(255, 255, 255);"><span>상        태</span></th>
+                <td style="background-color: rgb(255, 255, 255);">
+                  <label class="radio radio_on"><input type="radio" name="mgr_use_yn" value="" checked="checked">전체</label>
+                  <label class="radio ml20"><input type="radio" name="mgr_use_yn" value="사용">사용</label>
+                  <label class="radio ml20"><input type="radio" name="mgr_use_yn" value="사용안함">사용 안함</label>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="btn_area tc mt10">
+            <a href="#" class="btns btn_large_ok" name="btn_search"><span>조회</span></a>
+          </div>
+        </div>
+
+        <div class="section mt10">
+          <div class="tform01 col">
+            <table>
+              <colgroup>
+                <col style="width:*">
+                <col style="width:28%">
+                <col style="width:28%">
+                <col style="width:16%">
+                <col style="width:16%">
+              </colgroup>
+              <thead>
+              <tr>
+                <th scope="col"><strong>NO</strong></th>
+                <th scope="col"><strong class="pre">이        름</strong></th>
+                <th scope="col"><strong class="pre">아  이  디</strong></th>
+                <th scope="col"><strong class="pre">등   록   일</strong></th>
+                <th scope="col"><strong class="pre">상        태</strong></th>
+              </tr>
+              </thead>
+              <tbody id="user_list">
+              {{#each users}}
+              <tr>
+                <td>{{incremented @index}}</td>
+                <td><a class="link01 pre" href="{{pathFor 'userDetail' _id=_id}}">{{profile.이름}}</a></td>
+                <td><a class="link01" href="{{pathFor 'userDetail' _id=_id}}">{{username}}</a></td>
+                <td>{{등록일}}</td>
+                <td>{{profile.상태}}</td>
+              </tr>
+              {{/each}}
+              </tbody>
+            </table>
+          </div>
+
+          <!-- paging -->
+          <div class="paging" id="user_page_body"><a href="#" class="btn_first">처음 페이지</a><a href="#" class="btn_prev">이전 페이지</a><a href="#" class="on">1</a><a href="#" class="btn_next">다음 페이지</a><a href="#" class="btn_last">마지막 페이지</a></div>
+          <!-- //paging -->
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</template>

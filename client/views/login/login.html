@@ -1,0 +1,40 @@
+<template name="login">
+  <div id="login">
+    <div id="contents">
+
+      <div class="login_box">
+        <fieldset>
+          <legend>로그인</legend>
+          <div class="tit">
+            <h2>LOGIN</h2>
+            <p>DAS Management System 페이지에 오신 것을 환영합니다.<span class="block">관리자 아이디로 로그인 해주세요.</span></p>
+          </div>
+
+          <form id="user_modify_form" method="POST" autocomplete="off">
+            <ul>
+              <li class="ico_id">
+                <!--<strong id="mgr_id_tit" class="tit">아이디</strong>-->
+                <input type="text" name="MGR_ID" id="MGR_ID" autocomplete="off" placeholder="아이디">
+              </li>
+              <li class="ico_pw">
+                <!--<strong class="tit">비밀번호</strong>-->
+                <input type="password" name="PSWD" id="PSWD" autocomplete="off" placeholder="비밀번호">
+              </li>
+            </ul>
+          </form>
+          <!--<div class="both">-->
+            <!--<label class="checkbox">-->
+              <!--<input type="checkbox" id="SAVE_ID_CHECK">아이디 저장-->
+            <!--</label>-->
+          <!--</div>-->
+
+          <a href="#" name="btn_login" class="btn_login">로그인</a>
+        </fieldset>
+        <!--
+              <p class="txt">계정 문의는 <a href="mailto:das@rocomo.com">das@rocomo.com</a> 으로 문의해 주세요.</p>
+        -->
+      </div>
+
+    </div>
+  </div>
+</template>

@@ -1,0 +1,89 @@
+<template name="userDetailWriting">
+  <div id="userDetailWriting">
+    <div class="contents">
+      <h2 class="tit01">사용자 정보 등록</h2>
+      <div class="inner_box">
+        <div class="section">
+          {{#with userInfo}}
+          <form name="user_insert_form" id="user_insert_form" method="POST">
+            <div class="tform01 srch_form">
+              <strong class="txt_list"><span>사용자 정보 등록</span></strong>
+              <table>
+                <colgroup>
+                  <col style="width:18%">
+                  <col style="width:*">
+                </colgroup>
+                <tbody>
+                <tr>
+                  <th scope="row" class="bul_txt01 pre"><span>이        름</span></th>
+                  <td>
+                    <input type="text" class="ip_txt" style="width:116px" name="mgr_nm" id="mgr_nm" value="{{profile.이름}}">
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row" class="bul_txt01 pre" ><span>아   이   디</span></th>
+                  <td >
+                    <div class="form_list">
+                      <input type="text" class="ip_txt" style="width:116px" name="mgr_id" id="mgr_id" value="{{username}}" {{readonly}}>
+                      <a href="#" class="btns btn_inner90 ml10" name="btnIdCheck"><span>중복 확인</span></a>
+                    </div>
+                  </td>
+                </tr>
+                {{#if isWriting}}
+                <tr>
+                  <th scope="row" class="bul_txt01 pre"><span>비 밀 번 호</span></th>
+                  <td>
+                    <div class="form_list">
+                      <input type="password" class="ip_txt" style="width:116px" id="tmp_pswd" >
+                      <!--<a href="#" class="btns btn_inner120 ml10"><span>임시 비밀번호 발급</span></a>-->
+                    </div>
+                  </td>
+                </tr>
+                {{/if}}
+                <tr>
+                  <th scope="row" class="bul_txt01 pre" ><span>이   메   일</span></th>
+                  <td >
+                    <div class="form_list">
+                      <input type="text" class="ip_txt" style="width:232px " id="email1" value="{{profile.이메일}}">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row" class="bul_txt01 pre"><span>휴   대   폰</span></th>
+                  <td>
+                    <div class="form_list">
+                      <input type="text" class="ip_txt" style="width:116px" id="cell_phone3" maxlength="11" value="{{profile.휴대폰}}">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row" class="bul_txt01 pre" ><span>사 용 권 한</span></th>
+                  <td >
+                    <label class="radio radio_on"><input type="radio" name="use_perm" value="일반" checked="checked">일반 사용자</label>
+                    <label class="radio ml20"><input type="radio" name="use_perm" value="관리자">슈퍼 어드민</label>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row" class="bul_txt01 pre"><span>상        태</span></th>
+                  <td>
+                    <label class="radio radio_on"><input type="radio" name="use_yn" value="사용" checked="checked">사용</label>
+                    <label class="radio ml20"><input type="radio" name="use_yn" value="사용안함">사용안함</label>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+
+            </div>
+          </form>
+          {{/with}}
+        </div>
+
+        <div class="btn_area tc mt60">
+          <a href="#" class="btns btn_large_ok" name="btnSave"><span>확인</span></a>
+          <a href="#" class="btns btn_large_cncl ml10" name="btnCancle"><span>취소</span></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</template>

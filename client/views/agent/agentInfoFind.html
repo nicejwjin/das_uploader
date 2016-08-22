@@ -1,0 +1,67 @@
+<template name="agentInfoFind">
+  <div id="agentInfoFind">
+    <div class="contents">
+      <h2 class="tit01">Agent 정보 관리</h2>
+      <div class="inner_box">
+
+        <div class="section">
+          <div class="tform01 srch_form">
+            <strong class="txt_srch">
+              <span>Agent 정보 조회</span>
+              {{#if isAdmin}}
+              <a href="{{pathFor 'agentInfoWriting'}}" class="btns btn_inner90 right">
+                <span class="m0">신규 등록</span>
+              </a>
+              {{/if}}
+            </strong>
+          </div>
+        </div>
+
+        <div class="section mt10">
+          <div class="tform01 col">
+            <table>
+              <colgroup>
+                <col style="width:8%">
+                <col style="width:*">
+                <col style="width:25%">
+                <col style="width:25%">
+                <col style="width:10%">
+                <col style="width:10%">
+                <col style="width:10%">
+              </colgroup>
+              <thead>
+              <tr>
+                <th scope="col"><strong>NO</strong></th>
+                <th scope="col"><strong>AGENT_NAME</strong></th>
+                <th scope="col"><strong>AGENT_URL</strong></th>
+                <th scope="col"><strong>소멸정보절대경로</strong></th>
+                <th scope="col"><strong>소멸정보전송기능</strong></th>
+                <th scope="col"><strong>파일삭제기능</strong></th>
+                <th scope="col"><strong>관리</strong></th>
+              </tr>
+              </thead>
+              <tbody id="svc_list">
+              {{#each agents}}
+              <tr>
+                <td>{{incremented @index}}</td>
+                <td><a class="link01 txt_over txt_white" href="{{pathFor 'agentInfoEditing' _id=_id}}">{{AGENT_NAME}}</a></td>
+                <td>{{AGENT_URL}}</td>
+                <td>{{소멸정보절대경로}}</td>
+                <td>{{소멸정보전송기능}}</td>
+                <td>{{파일삭제기능}}</td>
+                <td><a class="btns btn_inner90 btn_list_del" name="btnAgentDel" id="{{_id}}">
+                  <strong>-</strong>삭제
+                </a></td>
+              </tr>
+              {{/each}}
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</template>

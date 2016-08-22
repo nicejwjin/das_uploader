@@ -1,0 +1,43 @@
+<template name="sideMenus">
+  <div id="sideMenus">
+    <div class="side_menu" style="width: 70px;">
+      <h2 class="tit01">MENU</h2>
+      <ul class="menu_list" style="width: 70px;">
+        <li class="m01" style="opacity: 0.9;"><div class="sub_box"><a href="{{pathFor 'history'}}"><strong>DAS 내역 관리</strong></a><span class="bul"></span></div></li>
+        <li class="m02" style="opacity: 0.9;"><div class="sub_box"><a href="#"><strong>DAS 통계 관리</strong></a>
+          <ul class="sub_list">
+            <li class="first"><a href="{{pathFor 'statTotalView'}}">종합 통계</a></li>
+            <li><a href="{{pathFor 'statAccumView'}}">서비스별 누적 통계</a></li>
+            <li><a href="{{pathFor 'statCapaView'}}">용량 통계</a></li>
+          </ul>
+          <span class="bul"></span></div></li>
+        <li class="m03" style="opacity: 0.9;"><div class="sub_box">
+          <a href="#"><strong>서비스 정보 관리</strong></a>
+
+          <ul class="sub_list">
+            <li class="first"><a href="{{pathFor 'serviceInfoFind'}}">서비스 정보 조회</a></li>
+            <li><a href="{{pathFor 'agentInfoFind'}}">Agent 정보 조회</a></li>
+          </ul>
+
+
+          <span class="bul"></span></div></li>
+        <li class="m04" style="opacity: 0.9;"><div class="sub_box">
+          <a href="#"><strong>사용자 정보 관리</strong></a>
+
+          <ul class="sub_list">
+            <li class="first"><a href="{{pathFor 'userList'}}">사용자 정보 조회</a></li>
+            <li><a href="{{pathFor 'userDetailWriting'}}">사용자 정보 등록</a></li>
+          </ul>
+
+
+          <span class="bul"></span></div></li>
+        <li class="m05" style="opacity: 0.9;"><div class="sub_box">
+
+          <a href="{{pathFor 'license'}}"><strong>라이선스 관리</strong></a>
+
+
+          <span class="bul"></span></div></li>
+      </ul>
+    </div>
+  </div>
+</template>

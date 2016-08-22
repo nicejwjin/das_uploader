@@ -1,0 +1,220 @@
+<template name="serviceInfoWriting">
+  <div id="serviceInfoWriting">
+    <div class="contents">
+      {{#with service}}
+
+      <h2 class="tit01">서비스 정보 등록</h2>
+      <div class="inner_box">
+        <div class="section">
+          <div class="tform01 srch_form">
+            <strong class="txt_list"><span>서비스 정보</span></strong>
+            <table class="mt10">
+              <colgroup>
+                <col style="width:20%">
+                <col style="width:15%">
+                <col style="width:17%">
+                <col style="width:15%">
+                <col style="width:18%">
+                <col style="width:*">
+              </colgroup>
+              <tbody>
+              <tr>
+                <th scope="row" class="bul_txt01 vt" style="background-color: rgb(255, 255, 255);"><span>서비스명</span></th>
+                <td colspan="5" style="background-color: rgb(255, 255, 255);">
+                  <input type="text" class="ip_txt" maxlength="15" id="svc_nm" name="SERVICE_NAME" value="{{SERVICE_NAME}}">
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="bul_txt01"><span>서비스ID</span></th>
+                <td colspan="5">
+                  <input type="text" class="ip_txt" maxlength="15" id="svc_id" name="SERVICE_ID" value="{{SERVICE_ID}}" placeholder="서비스ID는 서비스별 사용될 Unique key 값입니다. e.g) SRV00001">
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="bul_txt01 vt" style="background-color: rgb(255, 255, 255);"><span>서비스 소개</span></th>
+                <td colspan="5" style="background-color: rgb(255, 255, 255);">
+                  <textarea cols="30" rows="10" maxlength="2000" id="svc_cn" name="SERVICE_INFO">{{{SERVICE_INFO}}}</textarea>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="bul_txt01"><span>파일 처리 옵션</span></th>
+                <td colspan="5">
+                  <label class="radio radio_on" id="fileProcRadio1">
+                    <input type="radio" name="파일처리옵션" checked="checked" class="procOp" id="F10" value="삭제">삭제</label>
+                  <label class="radio ml20" id="fileProcRadio2">
+                    <input type="radio" name="파일처리옵션" class="procOp" id="F11" value="사이즈0">사이즈 0</label>
+                  <label class="radio ml20" id="fileProcRadio3">
+                    <input type="radio" name="파일처리옵션" class="procOp" id="F12" value="백업">백업</label>
+                  <input type="text" class="ip_txt ml20" style="width:418px;" placeholder="백업 파일 경로를 입력해 주세요. e.g. /home/..." maxlength="256" name="백업파일경로" value="{{백업파일경로}}">
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="bul_txt01" style="background-color: rgb(255, 255, 255);"><span>Agent 상태 전송 주기</span></th>
+                <td colspan="5" style="background-color: rgb(255, 255, 255);">
+                  <select name="AGENT상태전송주기">
+                    <option value="1">1분</option>
+                    <option value="3">3분</option>
+                    <option value="5">5분</option>
+                    <option value="10">10분</option>
+                    <option value="30">30분</option>
+                  </select>
+
+                  <!--<div class="select" id="aliveTermBox">-->
+                    <!--<span>선택하세요.</span>-->
+                    <!--<ul>-->
+                      <!--<li data-val="1">1분</li>-->
+                      <!--<li data-val="2">3분</li>-->
+                      <!--<li data-val="3">5분</li>-->
+                      <!--<li data-val="4">10분</li>-->
+                      <!--<li data-val="5">30분</li>-->
+                    <!--</ul>-->
+                    <!--<select id="select_alive_term">-->
+                      <!--<option value="1">1분</option>-->
+                      <!--<option value="3">3분</option>-->
+                      <!--<option value="5">5분</option>-->
+                      <!--<option value="10">10분</option>-->
+                      <!--<option value="30">30분</option>-->
+                    <!--</select>-->
+                  <!--</div>-->
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="bul_txt01"><span>상태</span></th>
+                <td colspan="5" id="useYn">
+                  <label class="radio radio_on" id="Y"><input type="radio" name="상태" checked="checked" value="true">사용</label>
+                  <label class="radio ml20" id="N"><input type="radio" name="상태" value="false">사용안함</label>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="section mt10">
+          <div class="tform01 srch_form">
+            <strong class="txt_list">
+              <span>업로드 DB 서버 정보</span> <button name="dbTest">접속 테스트</button>
+            </strong>
+            <table>
+              <colgroup>
+                <col style="width:20%">
+                <col style="width:*">
+              </colgroup>
+              <tbody>
+              <tr>
+                <th scope="row" class="bul_txt01"><span>DB Name</span></th>
+                <td>
+                  <input type="text" class="ip_txt" maxlength="30" name="DB이름" value="{{DB정보.DB이름}}">
+                  <!-- <input type="text" class="ip_txt" maxlength="30" id="svc_db_nm" name="svc_db_nm"  onkeyup="javascript:En_No_valid(this, 30);"/> -->
+                </td>
+              </tr>
+              <!--<tr>-->
+                <!--<th scope="row" class="bul_txt01" style="background-color: rgb(255, 255, 255);"><span>DB 접속 URL 정보</span></th>-->
+                <!--<td style="background-color: rgb(255, 255, 255);">-->
+                  <!--<input type="text" class="ip_txt left" maxlength="80" name="DB접속URL" value="{{DB정보.DB접속URL}}">-->
+
+                  <!--&lt;!&ndash; 	<input type="text" class="ip_txt left ml5" style="width:194px" maxlength="5" id="svc_db_port"  onkeyup="javascript:num_check(this);"/>-->
+                   <!--&ndash;&gt;-->
+                <!--</td>-->
+              <!--</tr>-->
+              <tr>
+                <th scope="row" class="bul_txt01"><span>DBMS 종류</span></th>
+                <td>
+                  <label class="radio radio_on" id="dbRadio1"><input type="radio" name="DBMS종류" class="dbmsOp" id="DB12" value="MsSQL">MsSQL</label>
+                  <label class="radio ml20" id="dbRadio2"><input type="radio" name="DBMS종류" class="dbmsOp" id="DB11" value="MySQL">MySQL</label>
+                  <label class="radio ml20" id="dbRadio3"><input type="radio" name="DBMS종류" class="dbmsOp" id="DB10" value="Oracle">Oracle</label>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="bul_txt01"><span>DB IP</span></th>
+                <td>
+                  <input type="text" class="ip_txt" maxlength="30" name="DB_IP" value="{{DB정보.DB_IP}}">
+                  <!-- <input type="text" class="ip_txt" maxlength="30"  id="svc_db_id" name="svc_db_id" onkeyup="javascript:En_No_valid(this, 30);"/> -->
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="bul_txt01"><span>DB PORT</span></th>
+                <td>
+                  <input type="text" class="ip_txt" maxlength="30" name="DB_PORT" value="{{DB정보.DB_PORT}}">
+                  <!-- <input type="text" class="ip_txt" maxlength="30"  id="svc_db_id" name="svc_db_id" onkeyup="javascript:En_No_valid(this, 30);"/> -->
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="bul_txt01"><span>DB DATABASE</span></th>
+                <td>
+                  <input type="text" class="ip_txt" maxlength="30" name="DB_DATABASE" value="{{DB정보.DB_DATABASE}}">
+                  <!-- <input type="text" class="ip_txt" maxlength="30"  id="svc_db_id" name="svc_db_id" onkeyup="javascript:En_No_valid(this, 30);"/> -->
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="bul_txt01"><span>DB ID</span></th>
+                <td>
+                  <input type="text" class="ip_txt" maxlength="30" name="DB_ID" value="{{DB정보.DB_ID}}">
+                  <!-- <input type="text" class="ip_txt" maxlength="30"  id="svc_db_id" name="svc_db_id" onkeyup="javascript:En_No_valid(this, 30);"/> -->
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="bul_txt01"><span>DB Password</span></th>
+                <td>
+                  <input type="password" class="ip_txt" maxlength="30" name="DB_PW" value="{{DB정보.DB_PW}}">
+                </td>
+              </tr>
+              </tbody>
+
+
+            </table>
+          </div>
+        </div>
+
+        <div class="section mt10">
+          <div class="tform01 col agent_info">
+            <strong class="txt_list">
+              <span>Agent 정보</span>
+            </strong>
+            <table class="mt10">
+              <colgroup>
+                <col style="width:8%">
+                <col style="width:*">
+                <col style="width:25%">
+                <col style="width:25%">
+                <col style="width:10%">
+                <col style="width:10%">
+                <col style="width:10%">
+              </colgroup>
+              <thead>
+              <tr>
+                <th scope="col"><strong>NO</strong></th>
+                <th scope="col"><strong>AGENT_NAME</strong></th>
+                <th scope="col"><strong>AGENT_URL</strong></th>
+                <th scope="col"><strong>소멸정보절대경로</strong></th>
+                <th scope="col"><strong>소멸정보전송기능</strong></th>
+                <th scope="col"><strong>파일삭제기능</strong></th>
+                <th scope="col"><strong>사용</strong></th>
+              </tr>
+              </thead>
+              <tbody id="svc_list">
+              {{#each agents}}
+                <tr>
+                  <td>{{incremented @index}}</td>
+                  <td><a class="link01 txt_over txt_white" href="{{pathFor 'agentInfoEditing' _id=_id}}">{{AGENT_NAME}}</a></td>
+                  <td>{{AGENT_URL}}</td>
+                  <td>{{소멸정보절대경로}}</td>
+                  <td>{{소멸정보전송기능}}</td>
+                  <td>{{파일삭제기능}}</td>
+                  <td><input id="{{_id}}" type="checkbox" class="AGENT정보"></td>
+                </tr>
+              {{/each}}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="btn_area tc mt60">
+          <a href="#" class="btns btn_large_ok"><span>확인</span></a>
+          <a href="#" class="btns btn_large_cncl ml10"><span>취소</span></a>
+        </div>
+      </div>
+    {{/with}}
+
+    </div>
+  </div>
+</template>

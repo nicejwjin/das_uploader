@@ -1,0 +1,69 @@
+<template name="userDetail">
+  <div id="userDetail">
+    <div class="contents">
+      <h2 class="tit01">사용자 정보 관리(상세)</h2>
+
+      <div class="inner_box">
+        <div class="section">
+          {{#with userInfo}}
+          <div class="tform01 srch_form">
+            {{#if isAdminUser}}
+            <strong class="txt_list">
+              <span>사용자 정보</span>
+              <a href="#" class="btns btn_inner90 right" name="btnDelete"><span class="m0">삭제</span></a>
+            </strong>
+            {{/if}}
+            <table>
+              <colgroup>
+                <col style="width:18%">
+                <col style="width:*">
+              </colgroup>
+              <tbody>
+              <tr>
+                <th scope="row" class="bul_txt01 pre"><span>이        름</span></th>
+                <td><p class="pre">{{profile.이름}}</p></td>
+              </tr>
+              <tr>
+                <th scope="row" class="bul_txt01 pre" style="background-color: rgb(255, 255, 255);"><span>아   이   디</span></th>
+                <td style="background-color: rgb(255, 255, 255);">{{username}}</td>
+              </tr>
+              <tr>
+                <th scope="row" class="bul_txt01 pre"><span>이   메   일</span></th>
+                <td>{{profile.이메일}}</td>
+              </tr>
+              <tr>
+                <th scope="row" class="bul_txt01 pre" style="background-color: rgb(255, 255, 255);"><span>휴   대   폰</span></th>
+                <td style="background-color: rgb(255, 255, 255);">{{profile.휴대폰}}</td>
+              </tr>
+              <tr>
+                <th scope="row" class="bul_txt01 pre"><span>사 용 권 한</span></th>
+
+
+                <td>{{profile.사용권한}}</td>
+
+              </tr>
+              <tr>
+                <th scope="row" class="bul_txt01 pre" style="background-color: rgb(255, 255, 255);"><span>상        태</span></th>
+
+                <td style="background-color: rgb(255, 255, 255);">{{profile.상태}}</td>
+
+
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          {{/with}}
+
+        </div>
+
+        <div class="btn_area tc mt60">
+          {{#if isAdminUser}}
+          <a href="#" class="btns btn_large_ok" name="btnEdit"><span>수정</span></a>
+          {{/if}}
+          <a href="{{pathFor 'userList'}}" class="btns btn_large_cncl ml10"><span>취소</span></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</template>

@@ -1,0 +1,84 @@
+<template name="userProfileEdit">
+  <div id="userProfileEdit">
+    <div class="contents">
+      <h2 class="tit01">사용자 정보 관리</h2>
+      <div class="inner_box">
+        <div class="section">
+          <form name="user_modify_form" id="user_modify_form" method="POST">
+            <input type="hidden" name="mgr_id" id="mgr_id" value="admin">
+            <input type="hidden" name="phone_no" id="phone_no">
+            <input type="hidden" name="ml_add" id="ml_add">
+            <input type="hidden" name="pswd" id="pswd">
+            <input type="hidden" name="temp_pswd_yn" id="temp_pswd_yn" value="">
+
+            {{#with userInfo}}
+            <div class="tform01 srch_form">
+              <strong class="txt_list"><span>사용자 정보 수정</span></strong>
+              <table>
+                <colgroup>
+                  <col style="width:18%">
+                  <col style="width:*">
+                </colgroup>
+                <tbody>
+                <tr>
+                  <th scope="row" class="bul_txt01 pre"><span>이        름</span></th>
+                  <td>{{profile.이름}}</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="bul_txt01 pre" style="background-color: rgb(255, 255, 255);"><span>아   이   디</span></th>
+                  <td style="background-color: rgb(255, 255, 255);">{{username}}</td>
+                </tr>
+
+
+
+                <tr>
+                  <th scope="row" class="bul_txt01"><span>새 비밀번호</span></th>
+                  <td>
+                    <div class="form_list">
+                      <input type="password" class="ip_txt" style="width:116px" id="new_pswd">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row" class="bul_txt01" style="background-color: rgb(255, 255, 255);"><span>비밀번호 확인</span></th>
+                  <td style="background-color: rgb(255, 255, 255);">
+                    <div class="form_list">
+                      <input type="password" class="ip_txt" style="width:116px" id="cnf_pswd">
+                    </div>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <th scope="row" class="bul_txt01 pre"><span>이   메   일</span></th>
+                  <td>
+                    <div class="form_list">
+                      <input type="text" class="ip_txt" style="width:232px " id="email1" value="{{profile.이메일}}">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row" class="bul_txt01 pre" style="background-color: rgb(255, 255, 255);"><span>휴   대   폰</span></th>
+                  <td style="background-color: rgb(255, 255, 255);">
+                    <div class="form_list">
+                      <input type="text" class="ip_txt" style="width:116px" id="cell_phone3" maxlength="11" value="{{profile.휴대폰}}">
+                    </div>
+                  </td>
+                </tr>
+
+                </tbody>
+              </table>
+            </div>
+            {{/with}}
+          </form>
+        </div>
+
+        <div class="btn_area tc mt60">
+          <a href="#" class="btns btn_large_ok" id="btn_save"><span>확인</span></a>
+          <a href="#" class="btns btn_large_cncl ml10" id="btn_cancle"><span>취소</span></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</template>

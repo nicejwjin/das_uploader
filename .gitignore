@@ -1,0 +1,7 @@
+node_modules/
+.idea
+.DS_Store
+*sublime*
+nohup*.out
+test*.sh
+dev_bundle

@@ -1,0 +1,145 @@
+<template name="serviceInfoDetail">
+  <div id="serviceInfoDetail">
+    <div class="contents">
+      <h2 class="tit01">서비스 정보 관리</h2>
+      <div class="inner_box">
+        <div class="section">
+          <div class="tform01 srch_form">
+            <strong class="txt_list"><span>서비스 정보</span></strong>
+            <table>
+              <colgroup>
+                <col style="width:20%">
+                <col style="width:10%">
+                <col style="width:20%">
+                <col style="width:10%">
+                <col style="width:20%">
+                <col style="width:*">
+              </colgroup>
+              <tbody>
+              <tr>
+                <th scope="row" class="bul_txt01"><span>서비스명</span></th>
+                <td colspan="5">
+                  <p class="pre">SOFT</p>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="bul_txt01" style="background-color: rgb(255, 255, 255);"><span>서비스 ID</span></th>
+                <td colspan="5" style="background-color: rgb(255, 255, 255);">
+                  UPSVC10007
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="bul_txt01 vt"><span>서비스 소개</span></th>
+                <td class="over_txt" colspan="5">
+                  <p class="prewrap">SOFT</p>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="bul_txt01" style="background-color: rgb(255, 255, 255);"><span>파일 처리 옵션</span></th>
+                <td colspan="5" style="background-color: rgb(255, 255, 255);">
+                  삭제  
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="bul_txt01"><span>DAS 요청 정보 전송 주기</span></th>
+                <td> 1분 </td>
+                <th scope="row" class="bul_txt01"><span>소멸 정보 요청 주기</span></th>
+                <td> 1분</td>
+                <th scope="row" class="bul_txt01"><span>Agent 상태 전송 주기</span></th>
+                <td>  1분</td>
+              </tr>
+              <tr>
+                <th scope="row" class="bul_txt01" style="background-color: rgb(255, 255, 255);"><span>상태</span></th>
+                <td colspan="5" style="background-color: rgb(255, 255, 255);">
+                  사용
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="section mt10">
+          <div class="tform01 srch_form">
+            <strong class="txt_list"><span>업로드 DB 서버 정보</span></strong>
+            <table>
+              <colgroup>
+                <col style="width:20%">
+                <col style="width:*">
+              </colgroup>
+              <tbody>
+              <tr>
+                <th scope="row" class="bul_txt01"><span>DB Name</span></th>
+                <td>
+                  das_demo
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="bul_txt01" style="background-color: rgb(255, 255, 255);"><span>DB 접속 URL 정보</span></th><!-- 2015-03-17 수정 -->
+                <td style="background-color: rgb(255, 255, 255);">jdbc:mysql://14.63.225.39:3306/das_demo?characterEncoding=UTF8</td><!-- 2015-03-17 수정 -->
+              </tr>
+              <tr>
+                <th scope="row" class="bul_txt01"><span>DBMS 종류</span></th>
+                <td>
+                  Mssql
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="bul_txt01" style="background-color: rgb(255, 255, 255);"><span>DB ID</span></th>
+                <td style="background-color: rgb(255, 255, 255);">
+                  das
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="bul_txt01"><span>DB Password</span></th>
+                <td>
+                  ******
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="section mt10">
+          <div class="tform01 col agent_info">
+            <strong class="txt_list">
+              <span>Agent 정보</span>
+            </strong>
+            <table class="mt10">
+              <!-- 2015-03-17_s -->
+              <colgroup>
+                <col style="width:6%">
+                <col style="width:16%">
+                <col style="width:*%">
+                <col style="width:24%">
+                <col style="width:24%">
+                <!-- 									<col style="width:16%" /> -->
+              </colgroup>
+              <!-- 2015-03-17_e -->
+              <thead>
+              <tr>
+                <th scope="col"><strong>NO</strong></th>
+                <th scope="col"><strong>Agent ID</strong></th>
+                <th scope="col"><strong>호스트명</strong></th>
+                <th scope="col"><strong>서버 IP</strong></th>
+                <!-- <th scope="col"><strong>DAS요청파일 경로</strong></th> --><!-- 2015-03-17 -->
+                <th scope="col"><strong>파일 삭제 처리</strong></th>
+                <!-- 										<th scope="col"><strong></strong></th> -->
+              </tr>
+              </thead>
+              <tbody>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="btn_area tc mt60">
+          <a href="{{pathFor 'serviceInfoWriting'}}" class="btns btn_large_ok"><span>수정</span></a>
+          <a href="javascript:history.back();" class="btns btn_large_cncl ml10"><span>취소</span></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</template>

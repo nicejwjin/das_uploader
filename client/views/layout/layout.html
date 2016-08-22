@@ -1,0 +1,16 @@
+<template name="layout">
+  <div id="layout">
+    {{> header}}
+      {{#if isSubContent}}
+        <div id="contents" class="sub_con">
+          <div class="inner">
+            {{> sideMenus}}
+            {{> yield}}
+          </div>
+        </div>
+      {{else}}
+        {{> yield}}
+      {{/if}}
+    {{> footer}}
+  </div>
+</template>

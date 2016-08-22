@@ -1,0 +1,168 @@
+<template name="home">
+  <div id="home">
+    <div id="contents" class="main_con">
+      <div class="inner">
+        <!-- side_menu -->
+        <!-- side_menu -->
+        <div class="side_menu">
+          <span><h2 class="tit01">MENU</h2></span>
+          <ul class="menu_list">
+            <li class="m01"><a href="{{pathFor 'history'}}"><strong>DAS 내역 관리</strong></a></li>
+            <li class="m02"><a href="#"><strong>DAS 통계 관리</strong></a>
+              <ul class="sub_list">
+                <li class="first"><a href="{{pathFor 'statTotalView'}}">종합 통계</a></li>
+                <li><a href="{{pathFor 'statAccumView'}}">서비스별 누적 통계</a></li>
+                <li><a href="{{pathFor 'statCapaView'}}">용량 통계</a></li>
+              </ul>
+            </li>
+            <li class="m03 ">
+              <a href="#"><strong>서비스 정보 관리</strong></a>
+              <ul class="sub_list">
+                <li class="first"><a href="{{pathFor 'serviceInfoFind'}}">서비스 정보 조회</a></li>
+                <li><a href="{{pathFor 'agentInfoFind'}}">Agent 정보 조회</a></li>
+              </ul>
+            </li>
+            <li class="m04 ">
+              <a href="#"><strong>사용자 정보 관리</strong></a>
+              <ul class="sub_list">
+                <li><a href="{{pathFor 'userDetailWriting'}}">사용자 정보 등록</a></li>
+                <li class="first"><a href="{{pathFor 'userList'}}">사용자 정보 조회</a></li>
+              </ul>
+            </li>
+            <li class="m05 ">
+              <a href="{{pathFor 'license'}}"><strong>라이선스 관리</strong></a>
+            </li>
+          </ul>
+        </div>
+        <!-- //side_menu -->
+
+        <!-- //side_menu -->
+
+        <div class="summary">
+          <h2 class="tit01">SUMMARY</h2>
+
+          <!-- chart01 -->
+          <div class="chart01">
+            <div class="inner">
+              <div class="tab">
+                <ul>
+                  <li class="t01 on"><a href="#" class="ready" >실시간 현황</a></li>
+                  <li class="t02"><a href="#" class="notReady">일별 현황</a></li>
+                  <li class="t03"><a href="#" class="notReady">주별 현황</a></li>
+                  <li class="t04"><a href="#" class="notReady">월별 현황</a></li>
+                </ul>
+                <a href="{{pathFor 'statAccumView'}}" class="btn_more">더 보기</a>
+              </div>
+
+              <div class="tab_con">
+                <div class="chart_box on">
+                  <div style="height:290px;" id="line_chart_div" data-highcharts-chart="0"></div>
+                </div>
+              </div>
+
+              <div class="txt_box">
+                <p>Total 누적 요청 건수</p>
+                <span id="#total_count" class="total_count2">{{누적요청}} 건</span>
+              </div>
+            </div>
+          </div>
+          <!-- //chart01 -->
+
+          <!-- chart02 -->
+          <div class="chart02">
+            <div class="inner">
+              <h3 class="tit02">TOTAL 용량 통계</h3>
+              <a href="{{pathFor 'statCapaView'}}" class="btn_more">더 보기</a>
+              <div style="height:240px;" id="donut_chart_div" data-highcharts-chart="1"></div>
+              <div class="txt_box">
+                <p>처리 현황</p>
+                <span class="del_view"><strong>{{처리현황}}</strong></span>
+              </div>
+
+              <div class="txt_box">
+                <p>대기 현황</p>
+                <span class="req_view"><strong>{{대기현황}}</strong></span>
+              </div>
+            </div>
+
+          </div>
+          <!-- //chart02 -->
+
+          <!-- agent -->
+          <div class="agent">
+            <div class="inner">
+              <div class="txt_box">
+                <h3 class="tit02">Agent 현황</h3>
+                <div class="agent_result">
+                  <p class="on">ON {{agent사용갯수}}</p>
+                  <p>OFF {{agent미사용갯수}}</p>
+                </div>
+              </div>
+
+              <div class="agent_list">
+                <div class="inner nano">
+                  <ul class="nano-content" id="agent_content" tabindex="0">
+                    {{#each agents}}
+                      <li>
+                        <a href="{{pathFor 'agentInfoFind'}}">
+                          <span class="ml10 {{isUseAgent}}">{{AGENT_NAME}} </span>
+                        </a>
+                      </li>
+                    {{/each}}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- //agent -->
+
+          <!-- error -->
+          <div class="error">
+            <div class="inner">
+              <div class="txt_box">
+                <h3 class="tit02"><span>서비스별 처리 현황</span></h3>
+                <a href="{{pathFor 'history'}}" class="btn_more">더 보기</a>
+              </div>
+              <div class="error_list nano">
+                <div class="inner nano-content" style="overflow-y:scroll;width:100%;height:100%;" tabindex="0">
+
+                  <table style="width:370px">
+                    <colgroup>
+                      <col style="width:*">
+                      <col style="width:18%">
+                      <col style="width:18%">
+                      <col style="width:18%">
+                      <col style="width:16%">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                      <th scope="col">서비스</th>
+                      <th scope="col">업로드</th>
+                      <th scope="col">처리</th>
+                      <th scope="col">대기</th>
+                      <th scope="col" class="txt_red">오류</th>
+                    </tr>
+                    </thead>
+                    <tbody id="error_body">
+                    {{#each serviceAccumStats}}
+                    <tr>
+                      <td class="tl"><a href="{{pathFor 'serviceInfoFind'}}" class="link01">{{SERVICE_NAME}}</a></td>
+                      <td>{{upCnt}}</td>
+                      <td>{{delCnt}}</td>
+                      <td>{{waitCnt}}</td>
+                      <td class="txt_red">{{errCnt}}</td>
+                    </tr>
+                    {{/each}}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- //error -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+</template>

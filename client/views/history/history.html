@@ -1,0 +1,125 @@
+<template name="history">
+  <div id="history">
+
+    <div class="contents">
+      <h2 class="tit01">DAS 내역 관리</h2>
+      <div class="inner_box">
+        <div class="section">
+          <div class="tform01 srch_form">
+            <strong class="txt_srch"><span>DAS 서비스 내역 조회</span></strong>
+            <table>
+              <colgroup>
+                <col style="width:13%">
+                <col style="width:*">
+              </colgroup>
+              <tbody>
+              <tr class="first">
+                <th scope="row" class="bul_txt01 pre"><span>서   비   스</span></th>
+                <td>
+                  <!-- select -->
+                  <select name="SERVICE_ID">
+                    <option value="all">전체</option>
+                    {{#each services}}
+                    <option value="{{_id}}">{{SERVICE_NAME}}</option>
+                    {{/each}}
+                  </select>
+                  <!-- //select -->
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="bul_txt01 pre" style="background-color: rgb(255, 255, 255);"><span>조 회 기 간</span></th>
+                <td style="background-color: rgb(255, 255, 255);">
+											<span class="ip_date left">
+												<span class="ip">
+                          <input id="date01" type="text">
+                        </span>
+												<span class="dash">~</span>
+												<span class="ip">
+                          <input id="date02" type="text">
+                        </span>
+											</span>
+                  <!-- 											<div class="left"> -->
+                  <!-- 												<span><input id="date01" type="text" class="ip_txt" style="width:80px; background-color:#3e4857;" readonly/></span> -->
+                  <!-- 												<span class="dash">~</span> -->
+                  <!-- 												<span><input id="date02" type="text" class="ip_txt" style="width:80px; background-color:#3e4857;" readonly/></span> -->
+                  <!-- 											</div> -->
+                  <!--<div class="btn_box form_left">-->
+                    <!--<a href="#" class="btns btn_inner" id="daily"><span>조회일</span></a>-->
+                    <!--<a href="#" class="btns btn_inner" id="weekly"><span>1주일</span></a>-->
+                    <!--<a href="#" class="btns btn_inner" id="monthly"><span>1개월</span></a>-->
+                    <!--&lt;!&ndash; 												<a href="#" class="btns btn_inner" ><span>기타</span></a> &ndash;&gt;-->
+                  <!--</div>-->
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="bul_txt01 pre"><span>처 리 결 과</span></th>
+                <td>
+                  <label class="radio radio_on"><input type="radio" name="SEARCH_PROC_DV" value="all" checked="checked">전체</label>
+                  <label class="radio ml20"><input type="radio" name="SEARCH_PROC_DV" value="wait">대기</label>
+                  <label class="radio ml20"><input type="radio" name="SEARCH_PROC_DV" value="success">성공</label>
+                  <label class="radio ml20"><input type="radio" name="SEARCH_PROC_DV" value="fail">실패</label>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="btn_area tc mt10">
+            <a href="#" class="btns btn_large_ok" name="btnSearch"><span>조회</span></a>
+          </div>
+        </div>
+
+        <div class="section mt10">
+          <div class="tform01 col">
+            <table>
+              <colgroup>
+                <col style="width:6%">
+                <col style="width:14%">
+                <col style="width:*">
+                <col style="width:14%">
+                <col style="width:14%">
+                <col style="width:14%">
+                <col style="width:10%">
+                <!-- 									<col style="width:8%" /> -->
+              </colgroup>
+              <thead>
+              <tr>
+                <th scope="col"><strong>NO</strong></th>
+                <th scope="col"><strong>업로드 일시</strong></th>
+                <th scope="col"><strong class="pre">서   비   스</strong></th>
+                <th scope="col"><strong>Agent</strong></th>
+                <th scope="col"><strong>소 멸 시 한</strong></th>
+                <th scope="col"><strong>처 리 일 시</strong></th>
+                <th scope="col"><strong>처 리 결 과</strong></th>
+                <!-- 										<th scope="col"><strong>수동 삭제</strong></th> -->
+              </tr>
+              </thead>
+              <tbody id="upreq_list">
+              {{#each lists}}
+              <tr>
+                <td>{{게시물번호 @index}}</td>
+                <td>{{업로드일시}}</td>
+                <td class="txt_over"><p class="pre">{{SERVICE_NAME}}</p></td>
+                <td>{{AGENT_NAME}}</td>
+                <td>{{소멸시한}}</td>
+                <td>{{처리일시}}</td>
+                <td><strong class="result">{{STATUS}}</strong></td>
+              </tr>
+              {{/each}}
+              </tbody>
+            </table>
+          </div>
+
+          <!-- paging -->
+          <div class="paging" id="history_page_body">
+            <a href="#" class="btn_prev">이전 페이지</a>
+            <a href="#" class="on">{{현재페이지}}</a>
+            <a href="#" class="btn_next">다음 페이지</a>
+          </div>
+          <!-- //paging -->
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</template>

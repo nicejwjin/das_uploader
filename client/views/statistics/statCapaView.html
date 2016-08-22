@@ -1,0 +1,74 @@
+<template name="statCapaView">
+  <div id="statCapaView">
+    <div class="contents">
+      <h2 class="tit01">용량 통계</h2>
+      <div class="inner_box">
+        <div class="section">
+          <div class="tform01 srch_form">
+            <strong><span>* 서비스 등록일 부터  등록 및 처리된 전체 누적 용량을 나타 냅니다.</span></strong>
+            <table>
+              <colgroup>
+                <col style="width:13%">
+                <col style="width:*">
+              </colgroup>
+              <tbody>
+              <tr>
+                <th scope="row" class="bul_txt01 pre"><span>서   비   스</span></th>
+                <td>
+                  <!-- select -->
+                  <select name="SERVICE_ID">
+                    <option value="all">전체</option>
+                    {{#each services}}
+                      <option value="{{SERVICE_ID}}">{{SERVICE_NAME}}</option>
+                    {{/each}}
+                  </select>
+                  <!-- //select -->
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="tr mt30 group">
+          <a href="#" class="right ml10" id="btnExcel"><img src="/images/btn_excel.png" alt="엑셀 다운로드"></a>
+        </div>
+
+        <div class="section mt10">
+          <div class="tform01 col" id="div_excel_down">
+            <table>
+              <colgroup>
+                <col style="width:*">
+                <col style="width:25%">
+                <col style="width:25%">
+                <col style="width:25%">
+              </colgroup>
+              <thead>
+              <tr>
+                <th scope="col"><strong class="pre">서   비   스</strong></th>
+                <th scope="col"><strong>업로드 용량</strong></th>
+                <th scope="col"><strong>처리 용량</strong></th>
+                <th scope="col"><strong>잔여 용량</strong></th>
+              </tr>
+              </thead>
+              <tbody id="stat_upfile_list">
+              {{#each lists}}
+                <tr id="{{SERVICE_ID}}">
+                  <td class="txt_white pre" >{{SERVICE_NAME}}</td>
+                  <td>{{upCnt}}</td>
+                  <td>{{delCnt}}</td>
+                  <td>{{waitCnt}}</td>
+                </tr>
+              {{/each}}
+              </tbody>
+            </table>
+          </div>
+
+          <!--<div class="paging" id="stat_upfile_page_body"><a href="javascript:make_stat_upfile_list(1);" class="btn_first">처음 페이지</a><a href="javascript:make_stat_upfile_list(1);" class="btn_prev">이전 페이지</a><a href="javascript:make_stat_upfile_list(1);" class="on">1</a><a href="javascript:make_stat_upfile_list(1);" class="btn_next">다음 페이지</a><a href="javascript:make_stat_upfile_list(1);" class="btn_last">마지막 페이지</a></div>-->
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</template>

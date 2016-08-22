@@ -1,0 +1,117 @@
+<template name="statAccumDetail">
+  <div id="statAccumDetail">
+    <div class="contents">
+      <h2 class="tit01">서비스별 누적 통계(상세)</h2>
+      <div class="inner_box">
+        <div class="section">
+          <div class="tform01 srch_form">
+            <table>
+              <colgroup>
+                <col style="width:13%">
+                <col style="width:*">
+              </colgroup>
+              <tbody>
+              <tr>
+                <th scope="row" class="bul_txt01 pre"><span>서   비   스</span></th>
+                <td>
+                  <!-- select -->
+                  <div class="select">
+                    <span>서비스_DEL</span>
+                    <ul id="upsvc_list_ul"><li data-val="UPSVC10001">서비스_DEL</li><li data-val="UPSVC10002">서비스_EMPTY</li><li data-val="UPSVC10003">서비스_COPY</li><li data-val="UPSVC10004">123123</li><li data-val="UPSVC10005">test</li><li data-val="UPSVC10006">tes</li><li data-val="UPSVC10007">SOFT</li></ul>
+                    <select id="upsvc_list_select" selected="selected"><option value="UPSVC10001">서비스_DEL</option><option value="UPSVC10002">서비스_EMPTY</option><option value="UPSVC10003">서비스_COPY</option><option value="UPSVC10004">123123</option><option value="UPSVC10005">test</option><option value="UPSVC10006">tes</option><option value="UPSVC10007">SOFT</option></select>
+                  </div>
+                  <!-- //select -->
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="bul_txt01" style="background-color: rgb(255, 255, 255);"><span>조 회 기 간</span></th>
+                <td style="background-color: rgb(255, 255, 255);">
+											<span class="ip_date left">
+												<span class="ip"><input id="date01" type="text" disabled="disabled" class="hasDatepicker"><img class="ui-datepicker-trigger" src="/images/btn_calendar.png" alt="..." title="..."></span>
+												<span class="dash">~</span>
+												<span class="ip"><input id="date02" type="text" disabled="disabled" class="hasDatepicker"><img class="ui-datepicker-trigger" src="/images/btn_calendar.png" alt="..." title="..."></span>
+											</span>
+                  <div class="btn_box form_left">
+                    <a href="#" class="btns btn_inner on"><span>일별</span></a>
+                    <a href="#" class="btns btn_inner"><span>주간</span></a>
+                    <a href="#" class="btns btn_inner"><span>월간</span></a>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="btn_area tc mt10">
+            <a href="javascript:make_chart();" class="btns btn_large_ok"><span>조회</span></a>
+          </div>
+        </div>
+
+        <div class="tr mt30">
+          <a href="#" id="btnExcel"><img src="/images/btn_excel.png" alt="엑셀 다운로드"></a>
+        </div>
+
+        <div class="tab list2 mt10">
+          <ul>
+            <li class="first on"><a href="#">업로드 건수</a></li>
+            <li><a href="#">처리 건수</a></li>
+          </ul>
+        </div>
+
+        <div class="section type2">
+          <div class="chart" style="height:300px;" id="line_chart_div" data-highcharts-chart="0"><div class="highcharts-container" id="highcharts-0" style="position: relative; overflow: hidden; width: 918px; height: 300px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg version="1.1" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="918" height="300"><desc>Created with Highcharts 4.0.1</desc><defs><clipPath id="highcharts-1"><rect x="0" y="0" width="898" height="178"></rect></clipPath></defs><rect x="0" y="0" width="918" height="300" strokeWidth="0" fill="#d2dfe9" class=" highcharts-background"></rect><rect x="10" y="10" width="898" height="178" fill="#e9eff4"></rect><path fill="rgba(230,102,103,0.25)" d="M 0 0"></path><g class="highcharts-grid" zIndex="1"></g><g class="highcharts-grid" zIndex="1"><path fill="none" d="M 10 9.5 L 908 9.5" stroke="#D9D9D9" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 10 46.5 L 908 46.5" stroke="#D9D9D9" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 10 81.5 L 908 81.5" stroke="#D9D9D9" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 10 117.5 L 908 117.5" stroke="#D9D9D9" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 10 152.5 L 908 152.5" stroke="#D9D9D9" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 10 188.5 L 908 188.5" stroke="#D9D9D9" stroke-width="1" zIndex="1" opacity="1"></path></g><g class="highcharts-axis" zIndex="2"><path fill="none" d="M 10 188.5 L 908 188.5" stroke="#6B6F7D" stroke-width="1" zIndex="7" visibility="visible"></path></g><g class="highcharts-axis" zIndex="2"></g><g class="highcharts-series-group" zIndex="3"><g class="highcharts-series" visibility="visible" zIndex="0.1" transform="translate(10,10) scale(1 1)" clip-path="url(#highcharts-1)"><path fill="none" d="M 29.933333333333334 178 L 89.8 178 L 149.66666666666666 178 L 209.53333333333333 178 L 269.4 178 L 329.26666666666665 178 L 389.1333333333333 178 L 449 178 L 508.8666666666667 178 L 568.7333333333332 178 L 628.5999999999999 178 L 688.4666666666666 178 L 748.3333333333333 178 L 808.1999999999999 178 L 868.0666666666666 178" stroke="#E66667" stroke-width="1" zIndex="1" stroke-linejoin="round" stroke-linecap="round"></path><path fill="none" d="M 19.933333333333334 178 L 29.933333333333334 178 L 89.8 178 L 149.66666666666666 178 L 209.53333333333333 178 L 269.4 178 L 329.26666666666665 178 L 389.1333333333333 178 L 449 178 L 508.8666666666667 178 L 568.7333333333332 178 L 628.5999999999999 178 L 688.4666666666666 178 L 748.3333333333333 178 L 808.1999999999999 178 L 868.0666666666666 178 L 878.0666666666666 178" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="21" zIndex="2" class=" highcharts-tracker" style=""></path></g><g class="highcharts-markers highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(10,10) scale(1 1)" clip-path="none" style=""><path fill="#E66667" d="M 868 174 C 873.328 174 873.328 182 868 182 C 862.672 182 862.672 174 868 174 Z" stroke="#FFFFFF" stroke-width="0.00001"></path><path fill="#E66667" d="M 808 174 C 813.328 174 813.328 182 808 182 C 802.672 182 802.672 174 808 174 Z" stroke="#FFFFFF" stroke-width="0.00001"></path><path fill="#E66667" d="M 748 174 C 753.328 174 753.328 182 748 182 C 742.672 182 742.672 174 748 174 Z" stroke="#FFFFFF" stroke-width="0.00001"></path><path fill="#E66667" d="M 688 174 C 693.328 174 693.328 182 688 182 C 682.672 182 682.672 174 688 174 Z" stroke="#FFFFFF" stroke-width="0.00001"></path><path fill="#E66667" d="M 628 174 C 633.328 174 633.328 182 628 182 C 622.672 182 622.672 174 628 174 Z" stroke="#FFFFFF" stroke-width="0.00001"></path><path fill="#E66667" d="M 568 174 C 573.328 174 573.328 182 568 182 C 562.672 182 562.672 174 568 174 Z" stroke="#FFFFFF" stroke-width="0.00001"></path><path fill="#E66667" d="M 508 174 C 513.328 174 513.328 182 508 182 C 502.672 182 502.672 174 508 174 Z" stroke="#FFFFFF" stroke-width="0.00001"></path><path fill="#E66667" d="M 449 174 C 454.328 174 454.328 182 449 182 C 443.672 182 443.672 174 449 174 Z" stroke="#FFFFFF" stroke-width="0.00001"></path><path fill="#E66667" d="M 389 174 C 394.328 174 394.328 182 389 182 C 383.672 182 383.672 174 389 174 Z" stroke="#FFFFFF" stroke-width="0.00001"></path><path fill="#E66667" d="M 329 174 C 334.328 174 334.328 182 329 182 C 323.672 182 323.672 174 329 174 Z" stroke="#FFFFFF" stroke-width="0.00001"></path><path fill="#E66667" d="M 269 174 C 274.328 174 274.328 182 269 182 C 263.672 182 263.672 174 269 174 Z" stroke="#FFFFFF" stroke-width="0.00001"></path><path fill="#E66667" d="M 209 174 C 214.328 174 214.328 182 209 182 C 203.672 182 203.672 174 209 174 Z" stroke="#FFFFFF" stroke-width="0.00001"></path><path fill="#E66667" d="M 149.66666666666666 174 C 154.99466666666666 174 154.99466666666666 182 149.66666666666666 182 C 144.33866666666665 182 144.33866666666665 174 149.66666666666666 174 Z" stroke="#FFFFFF" stroke-width="0.00001"></path><path fill="#E66667" d="M 89 174 C 94.328 174 94.328 182 89 182 C 83.672 182 83.672 174 89 174 Z" stroke="#FFFFFF" stroke-width="0.00001"></path><path fill="#E66667" d="M 29 174 C 34.328 174 34.328 182 29 182 C 23.672 182 23.672 174 29 174 Z" stroke="#FFFFFF" stroke-width="0.00001"></path></g></g><g class="highcharts-legend" zIndex="7" transform="translate(29,239)"><rect x="0.5" y="0.5" width="867" height="45" strokeWidth="1" stroke="#96B8DC" stroke-width="1" fill="#e9eff4" visibility="visible"></rect><g zIndex="1" transform="translate(0,21)"><g><g class="highcharts-legend-item" zIndex="1" transform="translate(8,3)"><path fill="none" d="M 0 11 L 16 11" stroke-width="1" stroke="#E66667"></path><path fill="#E66667" d="M 8 7 C 13.328 7 13.328 15 8 15 C 2.6719999999999997 15 2.6719999999999997 7 8 7 Z" stroke="#FFFFFF" stroke-width="0.00001"></path></g></g></g><g class="highcharts-legend-title" zIndex="1" style="" transform="translate(5,4)"><text x="3" zIndex="1" style="font-weight:normal;color:#444;fill:#444;" y="16"><tspan>에이전트명 선택시 그래프를 선택적으로 보실 수 있습니다.</tspan></text></g></g><g class="highcharts-axis-labels highcharts-xaxis-labels" zIndex="7"><text x="39.93333333333334" text-anchor="middle" style="color:#808184;cursor:default;font-size:11px;fill:#808184;" y="218" opacity="1">08-02</text><text x="99.80000000000001" text-anchor="middle" style="color:#808184;cursor:default;font-size:11px;fill:#808184;" y="218" opacity="1">08-03</text><text x="159.66666666666666" text-anchor="middle" style="color:#808184;cursor:default;font-size:11px;fill:#808184;" y="218" opacity="1">08-04</text><text x="219.53333333333333" text-anchor="middle" style="color:#808184;cursor:default;font-size:11px;fill:#808184;" y="218" opacity="1">08-05</text><text x="279.4" text-anchor="middle" style="color:#808184;cursor:default;font-size:11px;fill:#808184;" y="218" opacity="1">08-06</text><text x="339.26666666666665" text-anchor="middle" style="color:#808184;cursor:default;font-size:11px;fill:#808184;" y="218" opacity="1">08-07</text><text x="399.1333333333333" text-anchor="middle" style="color:#808184;cursor:default;font-size:11px;fill:#808184;" y="218" opacity="1">08-08</text><text x="459" text-anchor="middle" style="color:#808184;cursor:default;font-size:11px;fill:#808184;" y="218" opacity="1">08-09</text><text x="518.8666666666667" text-anchor="middle" style="color:#808184;cursor:default;font-size:11px;fill:#808184;" y="218" opacity="1">08-10</text><text x="578.7333333333333" text-anchor="middle" style="color:#808184;cursor:default;font-size:11px;fill:#808184;" y="218" opacity="1">08-11</text><text x="638.6" text-anchor="middle" style="color:#808184;cursor:default;font-size:11px;fill:#808184;" y="218" opacity="1">08-12</text><text x="698.4666666666667" text-anchor="middle" style="color:#808184;cursor:default;font-size:11px;fill:#808184;" y="218" opacity="1">08-13</text><text x="758.3333333333334" text-anchor="middle" style="color:#808184;cursor:default;font-size:11px;fill:#808184;" y="218" opacity="1">08-14</text><text x="818.2" text-anchor="middle" style="color:#808184;cursor:default;font-size:11px;fill:#808184;" y="218" opacity="1">08-15</text><text x="878.0666666666667" text-anchor="middle" style="color:#808184;cursor:default;font-size:11px;fill:#808184;" y="218" opacity="1">08-16</text></g><g class="highcharts-axis-labels highcharts-yaxis-labels" zIndex="7"><text x="13" text-anchor="start" style="width:283px;color:#808184;cursor:default;font-size:11px;fill:#808184;" y="203" opacity="1">0</text><text x="13" text-anchor="start" style="width:283px;color:#808184;cursor:default;font-size:11px;fill:#808184;" y="167.39999999999998" opacity="1">1</text><text x="13" text-anchor="start" style="width:283px;color:#808184;cursor:default;font-size:11px;fill:#808184;" y="131.8" opacity="1">2</text><text x="13" text-anchor="start" style="width:283px;color:#808184;cursor:default;font-size:11px;fill:#808184;" y="96.19999999999999" opacity="1">3</text><text x="13" text-anchor="start" style="width:283px;color:#808184;cursor:default;font-size:11px;fill:#808184;" y="60.599999999999994" opacity="1">4</text><text x="13" text-anchor="start" style="width:283px;color:#808184;cursor:default;font-size:11px;fill:#808184;" y="25" opacity="1">5</text></g><g class="highcharts-tooltip" zIndex="8" style="cursor:default;padding:0;white-space:nowrap;" transform="translate(118,129)" opacity="0"><path fill="none" d="M 0.5 0.5 L 84.5 0.5 C 84.5 0.5 84.5 0.5 84.5 0.5 L 84.5 43.5 C 84.5 43.5 84.5 43.5 84.5 43.5 L 48.5 43.5 42.5 49.5 36.5 43.5 0.5 43.5 C 0.5 43.5 0.5 43.5 0.5 43.5 L 0.5 0.5 C 0.5 0.5 0.5 0.5 0.5 0.5" stroke-width="5" isShadow="true" stroke="black" stroke-opacity="0.049999999999999996" transform="translate(1, 1)" width="84" height="43"></path><path fill="none" d="M 0.5 0.5 L 84.5 0.5 C 84.5 0.5 84.5 0.5 84.5 0.5 L 84.5 43.5 C 84.5 43.5 84.5 43.5 84.5 43.5 L 48.5 43.5 42.5 49.5 36.5 43.5 0.5 43.5 C 0.5 43.5 0.5 43.5 0.5 43.5 L 0.5 0.5 C 0.5 0.5 0.5 0.5 0.5 0.5" stroke-width="3" isShadow="true" stroke="black" stroke-opacity="0.09999999999999999" transform="translate(1, 1)" width="84" height="43"></path><path fill="none" d="M 0.5 0.5 L 84.5 0.5 C 84.5 0.5 84.5 0.5 84.5 0.5 L 84.5 43.5 C 84.5 43.5 84.5 43.5 84.5 43.5 L 48.5 43.5 42.5 49.5 36.5 43.5 0.5 43.5 C 0.5 43.5 0.5 43.5 0.5 43.5 L 0.5 0.5 C 0.5 0.5 0.5 0.5 0.5 0.5" stroke-width="1" isShadow="true" stroke="black" stroke-opacity="0.15" transform="translate(1, 1)" width="84" height="43"></path><path fill="rgba(0, 0, 0, 0.75)" d="M 0.5 0.5 L 84.5 0.5 C 84.5 0.5 84.5 0.5 84.5 0.5 L 84.5 43.5 C 84.5 43.5 84.5 43.5 84.5 43.5 L 48.5 43.5 42.5 49.5 36.5 43.5 0.5 43.5 C 0.5 43.5 0.5 43.5 0.5 43.5 L 0.5 0.5 C 0.5 0.5 0.5 0.5 0.5 0.5" stroke-width="1" stroke="#3468AF"></path></g></svg><div class="highcharts-tooltip" style="position: absolute; left: 118px; top: 129px; visibility: hidden;"><span style="position: absolute; white-space: nowrap; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Helvetica, sans-serif; font-size: 12px; color: rgb(240, 240, 240); margin-left: 0px; margin-top: 0px; left: 8px; top: 8px;" zindex="1"><span style="font-size: 10px">08-04</span><br><span style="color:#E66667">●</span> Agent1: <b>0</b><br></span></div><div class="highcharts-legend" style="position: absolute; left: 29px; top: 239px;"><div class="null" style="position: absolute; left: 0px; top: 21px;"><div class="null" style="position: absolute; left: 0px; top: 0px;"><div class="highcharts-legend-item" style="position: absolute; left: 8px; top: 3px;"><span style="position: absolute; white-space: nowrap; font-family: 'Trebuchet MS', Verdana, sans-serif; font-size: 9pt; color: rgb(57, 69, 92); font-weight: normal; cursor: pointer; font-style: normal; font-variant: normal; font-stretch: normal; line-height: normal; margin-left: 0px; margin-top: 0px; left: 21px; top: 2px; fill: rgb(57, 69, 92);" zindex="2">Agent1</span></div></div></div></div></div></div>
+        </div>
+
+        <div class="both mt10">
+          <!-- 						<div class="section harf chart1"> -->
+          <div class="section harf chart3">
+            <div class="tit">Agent별 업로드 분포율</div>
+            <div class="list">
+              <ul id="agent_upload_rate_list"><li><strong class="ico01">■</strong>Agent1 [0 %]</li></ul>
+            </div>
+            <div class="chart" id="agent_upload_rate_chart_div" data-highcharts-chart="1"><div class="highcharts-container" id="highcharts-4" style="position: relative; overflow: hidden; width: 200px; height: 200px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg version="1.1" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="200" height="200"><desc>Created with Highcharts 4.0.1</desc><defs><clipPath id="highcharts-5"><rect x="0" y="0" width="200" height="199"></rect></clipPath></defs><rect x="0" y="0" width="200" height="200" strokeWidth="0" fill="#d2dfe9" class=" highcharts-background"></rect><g class="highcharts-series-group" zIndex="3"><g class="highcharts-series highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(0,0) scale(1 1)" style=""><path fill="#E66667" d="M 99.98177124826928 10.000001856354146 A 89.5 89.5 0 0 1 99.89227127415668 10.000064835098186 L 100 99.5 A 0 0 0 0 0 100 99.5 Z" stroke="#FFFFFF" stroke-width="0.00001" stroke-linejoin="round" transform="translate(0,0)"></path></g><g class="highcharts-markers" visibility="visible" zIndex="0.1" transform="translate(0,0) scale(1 1)"></g></g><g class="highcharts-data-labels highcharts-tracker" visibility="visible" zIndex="6" transform="translate(0,0) scale(1 1)" opacity="1" style=""></g><g class="highcharts-legend" zIndex="7"><g zIndex="1"><g></g></g></g><g class="highcharts-tooltip" zIndex="8" style="cursor:default;padding:0;white-space:nowrap;" transform="translate(0,-9999)"><path fill="none" d="M 3 0 L 13 0 C 16 0 16 0 16 3 L 16 13 C 16 16 16 16 13 16 L 3 16 C 0 16 0 16 0 13 L 0 3 C 0 0 0 0 3 0" stroke-width="5" isShadow="true" stroke="black" stroke-opacity="0.049999999999999996" transform="translate(1, 1)"></path><path fill="none" d="M 3 0 L 13 0 C 16 0 16 0 16 3 L 16 13 C 16 16 16 16 13 16 L 3 16 C 0 16 0 16 0 13 L 0 3 C 0 0 0 0 3 0" stroke-width="3" isShadow="true" stroke="black" stroke-opacity="0.09999999999999999" transform="translate(1, 1)"></path><path fill="none" d="M 3 0 L 13 0 C 16 0 16 0 16 3 L 16 13 C 16 16 16 16 13 16 L 3 16 C 0 16 0 16 0 13 L 0 3 C 0 0 0 0 3 0" stroke-width="1" isShadow="true" stroke="black" stroke-opacity="0.15" transform="translate(1, 1)"></path><path fill="rgba(249, 249, 249, .85)" d="M 3 0 L 13 0 C 16 0 16 0 16 3 L 16 13 C 16 16 16 16 13 16 L 3 16 C 0 16 0 16 0 13 L 0 3 C 0 0 0 0 3 0" stroke-width="1"></path><text x="8" zIndex="1" style="font-size:12px;color:#333333;fill:#333333;" y="21"></text></g></svg></div></div>
+          </div>
+
+          <!-- 						<div class="section harf chart2"> -->
+          <div class="section harf chart4">
+            <div class="tit">Agent별 처리 분포율</div>
+            <div class="list">
+              <ul id="agent_proc_rate_list"><li><strong class="ico01">■</strong>Agent1 [0 %]</li></ul>
+            </div>
+            <div class="chart" id="agent_proc_rate_chart_div" data-highcharts-chart="2"><div class="highcharts-container" id="highcharts-6" style="position: relative; overflow: hidden; width: 200px; height: 200px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg version="1.1" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="200" height="200"><desc>Created with Highcharts 4.0.1</desc><defs><clipPath id="highcharts-7"><rect x="0" y="0" width="200" height="199"></rect></clipPath></defs><rect x="0" y="0" width="200" height="200" strokeWidth="0" fill="#d2dfe9" class=" highcharts-background"></rect><g class="highcharts-series-group" zIndex="3"><g class="highcharts-series highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(0,0) scale(1 1)" style=""><path fill="#E66667" d="M 99.98177124826928 10.000001856354146 A 89.5 89.5 0 0 1 99.89227127415668 10.000064835098186 L 100 99.5 A 0 0 0 0 0 100 99.5 Z" stroke="#FFFFFF" stroke-width="0.00001" stroke-linejoin="round" transform="translate(0,0)"></path></g><g class="highcharts-markers" visibility="visible" zIndex="0.1" transform="translate(0,0) scale(1 1)"></g></g><g class="highcharts-data-labels highcharts-tracker" visibility="visible" zIndex="6" transform="translate(0,0) scale(1 1)" opacity="1" style=""></g><g class="highcharts-legend" zIndex="7"><g zIndex="1"><g></g></g></g><g class="highcharts-tooltip" zIndex="8" style="cursor:default;padding:0;white-space:nowrap;" transform="translate(0,-9999)"><path fill="none" d="M 3 0 L 13 0 C 16 0 16 0 16 3 L 16 13 C 16 16 16 16 13 16 L 3 16 C 0 16 0 16 0 13 L 0 3 C 0 0 0 0 3 0" stroke-width="5" isShadow="true" stroke="black" stroke-opacity="0.049999999999999996" transform="translate(1, 1)"></path><path fill="none" d="M 3 0 L 13 0 C 16 0 16 0 16 3 L 16 13 C 16 16 16 16 13 16 L 3 16 C 0 16 0 16 0 13 L 0 3 C 0 0 0 0 3 0" stroke-width="3" isShadow="true" stroke="black" stroke-opacity="0.09999999999999999" transform="translate(1, 1)"></path><path fill="none" d="M 3 0 L 13 0 C 16 0 16 0 16 3 L 16 13 C 16 16 16 16 13 16 L 3 16 C 0 16 0 16 0 13 L 0 3 C 0 0 0 0 3 0" stroke-width="1" isShadow="true" stroke="black" stroke-opacity="0.15" transform="translate(1, 1)"></path><path fill="rgba(249, 249, 249, .85)" d="M 3 0 L 13 0 C 16 0 16 0 16 3 L 16 13 C 16 16 16 16 13 16 L 3 16 C 0 16 0 16 0 13 L 0 3 C 0 0 0 0 3 0" stroke-width="1"></path><text x="8" zIndex="1" style="font-size:12px;color:#333333;fill:#333333;" y="21"></text></g></svg></div></div>
+          </div>
+        </div>
+
+        <div class="section mt10">
+          <div class="tform01 col" id="div_excel_down">
+            <table>
+              <colgroup>
+                <col style="width:*">
+                <col style="width:16.6%">
+                <col style="width:16.6%">
+                <col style="width:16.6%">
+                <col style="width:16.6%">
+                <col style="width:16.6%">
+              </colgroup>
+              <thead>
+              <tr>
+                <th scope="col"><strong>Agent</strong></th>
+                <th scope="col"><strong>업로드 건수</strong></th>
+                <th scope="col"><strong>업로드율</strong></th>
+                <th scope="col"><strong>처리 성공 건수</strong></th>
+                <th scope="col"><strong>처리율</strong></th>
+                <th scope="col"><strong>오류 건수</strong></th>
+              </tr>
+              </thead>
+              <tbody id="stat_accum_detail_list"><tr><td class="txt_white"><a href="javascript:submit_stat_agent_detail('AGENT10001');">Agent1</a></td><td>0</td><td>0 %</td><td>0</td><td>0 %</td><td class="txt_result">0</td></tr></tbody>
+            </table>
+          </div>
+          <div class="btn_area tc mt10">
+            <a href="javascript:history.back();" class="btns btn_large_ok"><span>이전</span></a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</template>

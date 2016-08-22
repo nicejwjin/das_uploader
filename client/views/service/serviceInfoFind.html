@@ -1,0 +1,56 @@
+<template name="serviceInfoFind">
+  <div id="serviceInfoFind">
+    <div class="contents">
+      <h2 class="tit01">서비스 정보 관리</h2>
+      <div class="inner_box">
+        <div class="section">
+          <div class="tform01 srch_form">
+            <strong class="txt_srch">
+              <span>서비스 정보 조회</span>
+              <a href="{{pathFor 'serviceInfoWriting'}}" class="btns btn_inner90 right">
+                <span class="m0">신규 등록</span>
+              </a>
+            </strong>
+          </div>
+        </div>
+
+        <div class="section mt10">
+          <div class="tform01 col">
+            <table>
+              <colgroup>
+                <col style="width:8%">
+                <col style="width:*">
+                <col style="width:16%">
+                <col style="width:16%">
+                <col style="width:16%">
+              </colgroup>
+              <thead>
+              <tr>
+                <th scope="col"><strong>NO</strong></th>
+                <th scope="col"><strong>서비스명</strong></th>
+                <th scope="col"><strong>서비스ID</strong></th>
+                <th scope="col"><strong>등록 Agent 수</strong></th>
+                <th scope="col"><strong>상태</strong></th>
+              </tr>
+              </thead>
+              <tbody id="svc_list">
+              {{#each services}}
+              <tr>
+                <td>{{incremented @index}}</td>
+                <td><a class="link01 txt_over txt_white" href="{{pathFor 'serviceInfoEditing' _id=_id}}">{{SERVICE_NAME}}</a></td>
+                <td>{{SERVICE_ID}}</td>
+                <td>{{AGENTS_count}}</td>
+                <td>{{상태}}</td>
+              </tr>
+              {{/each}}
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</template>
