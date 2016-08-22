@@ -104,12 +104,12 @@ Meteor.methods
     runDMS()
   'dbConnectionTest': (_dbObj) ->
     cl _dbObj
-    mysqlDB = mysql.createConnection _dbObj.DB접속URL,
-#      host: 'localhost'
-#      port: '3306'
-#      user: _dbObj.DB_ID
-#      password: _dbObj.DB_PW
-#      database: 'test'
+    mysqlDB = mysql.createConnection
+      host: service.DB정보.DB_IP
+      port: service.DB정보.DB_PORT
+      user: service.DB정보.DB_ID
+      password: service.DB정보.DB_PW
+      database: service.DB정보.DB_DATABASE
     fut = new future()
     mysqlDB.connect (err) ->
       fut.return err?.message or 'success'

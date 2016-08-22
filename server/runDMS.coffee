@@ -65,12 +65,12 @@ Meteor.startup ->
             else dasInfo.STATUS.push err.toString()
 ##    delete query
       try
-        mysqlDB = mysql.createConnection service.DB정보.DB접속URL
-#            host: 'localhost'
-#             port: ''
-#            user: 'root'
-#            password: 'Thflskf0'
-#            database: 'test'
+        mysqlDB = mysql.createConnection
+            host: service.DB정보.DB_IP
+            port: service.DB정보.DB_PORT
+            user: service.DB정보.DB_ID
+            password: service.DB정보.DB_PW
+            database: service.DB정보.DB_DATABASE
         mysqlDB.connect()
 #          arr_queries = dasInfo.DEL_DB_QRY.split(';')
 #          arr_queries = arr_queries.filter (str) -> if str.length > 0 then true else false
