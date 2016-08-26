@@ -5,9 +5,11 @@ fiber = require 'fibers'
 
 Meteor.startup ->
   #  reset 시 테스트 환경을 위한 데이터
-  CollectionServices.update SERVICE_ID: "chunchoen.go.kr",
+  cl CollectionServices.findOne(SERVICE_ID: 'chuncheon.go.kr')
+  CollectionServices.update SERVICE_ID: "chuncheon.go.kr",
     $set:
       "용량통계.업로드용량": 0
+
   unless CollectionServices.findOne()
     agent = dataSchema 'Agent'
     agent.AGENT_NAME = 'dasAgent'
